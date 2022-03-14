@@ -78,17 +78,11 @@ public class Donate {
     FileOutputStream fileOutputStream = new FileOutputStream("1.png");
     fileOutputStream.write(out.toByteArray());
     fileOutputStream.close();
-    String code = ChaoJiYing.PostPic("1150840779", "xgs1150840779",
-        "12d90a7a034ebcb684f7d955c81e623f", "1902", "0", out.toByteArray());
+    String code = ChaoJiYing.PostPic("username", "password",
+        "userId", "TYPE", "0", out.toByteArray());
     JSONObject jsonObject = JSON.parseObject(code);
     String pic_str = jsonObject.getString("pic_str");
-    //此时得到了最终的验证码
-    //PhoneNumber: 15824035077
-    //verifycode: HE5B
-    //reg_name: 徐高松
-    //reg_ident: 331082200203221398
-    //reg_position: 0
-    //date: Sat Mar 12 2022 22:58:38 GMT 0800 (中国标准时间)
+
     map.clear();
     map.put("PhoneNumber",tele);
     map.put("verifycode",pic_str);
@@ -108,12 +102,7 @@ public class Donate {
 
   public static void main(String[] args) throws HttpProcessException, IOException {
     Donate D = new Donate();
-    for (int i = 0; i < 50; i++) {
-      D.donate("徐高松", "331082200203221398", "15824035078");
-      if(i%25==0 ){
-        D.donate("徐高松", "331082200203221398", "15824035076");
-      }
-    }
+    D.donate("name","identifyId","telephone");
 
 
 
