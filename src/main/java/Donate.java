@@ -50,10 +50,8 @@ public class Donate {
     String html = HttpClientUtil.get(httpConfig);
     //填装身份证姓名用来请求
     HashMap<String, Object> map = new HashMap<>();
-    //reg_name: 徐高松
-    //reg_iden: 331082200203221397
-    //reg_website: 1
-    //reg_position: 0
+
+    
     map.put("reg_name", name);
     map.put("reg_iden", identify);
     map.put("reg_website", 1);
